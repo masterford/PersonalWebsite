@@ -68,6 +68,13 @@ export const pageQuery = graphql`
             date
             category
             description
+            featuredImage {
+              childImageSharp {
+                sizes(maxWidth: 630) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }

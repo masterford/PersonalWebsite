@@ -12,7 +12,7 @@ class Post extends React.Component {
       description,
     } = this.props.data.node.frontmatter
     const { slug, categorySlug } = this.props.data.node.fields
-
+    
     return (
       <div className="post">
         <div className="post__meta">
