@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve('./src/templates/post-template.jsx')
     const pageTemplate = path.resolve('./src/templates/page-template.jsx')
+    const projectTemplate = path.resolve('./src/templates/project-template.jsx')
     const tagTemplate = path.resolve('./src/templates/tag-template.jsx')
     const categoryTemplate = path.resolve(
       './src/templates/category-template.jsx'
@@ -47,7 +48,13 @@ exports.createPages = ({ graphql, actions }) => {
             component: slash(pageTemplate),
             context: { slug: edge.node.fields.slug },
           })
-        } else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
+        }else if (_.get(edge, 'node.frontmatter.layout') === 'project') {
+          createPage({
+            path: edge.node.fields.slug,
+            component: slash(projectTemplate),
+            context: { slug: edge.node.fields.slug },
+          })
+        }else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
           createPage({
             path: edge.node.fields.slug,
             component: slash(postTemplate),

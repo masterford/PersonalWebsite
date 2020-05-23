@@ -1,17 +1,17 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Post from '../components/Post'
-import Sidebar from '../components/Sidebar'
+import Layout from '../../components/Layout'
+import Project from '../../components/Project'
+import Sidebar from '../../components/Sidebar'
 
-class IndexRoute extends React.Component {
+class ProjectIndexRoute extends React.Component {
   render() {
     const items = []
     const { title, subtitle } = this.props.data.site.siteMetadata
-    const posts = this.props.data.allMarkdownRemark.edges
-    posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
+    const projects = this.props.data.allMarkdownRemark.edges
+    projects.forEach(project => {
+      items.push(<Project data={project} key={project.node.fields.slug} />)
     })
     
     return (
@@ -31,10 +31,10 @@ class IndexRoute extends React.Component {
   }
 }
 
-export default IndexRoute
+export default ProjectIndexRoute
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query IndexProjectQuery {
     site {
       siteMetadata {
         title
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 1000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
+      filter: { frontmatter: { layout: { eq: "project" }, draft: { ne: true } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {

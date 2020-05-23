@@ -2,39 +2,30 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Post from '../components/Post'
 import Sidebar from '../components/Sidebar'
+import ProjectTagTemplateDetails from '../components/ProjectTagTemplateDetails'
 
-class IndexRoute extends React.Component {
+class ProjectTagTemplate extends React.Component {
   render() {
-    const items = []
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const posts = this.props.data.allMarkdownRemark.edges
-    posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
-    
+    const { title } = this.props.data.site.siteMetadata
+    const { tag } = this.props.pageContext
+
     return (
       <Layout>
         <div>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={subtitle} />
-          </Helmet>
+          <Helmet title={`All Projects tagged as "${tag}" - ${title}`} />
           <Sidebar {...this.props} />
-          <div className="content">
-            <div className="content__inner">{items}</div>
-          </div>
+          <ProjectTagTemplateDetails {...this.props} />
         </div>
       </Layout>
     )
   }
 }
 
-export default IndexRoute
+export default ProjectTagTemplate
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query ProjectTagPage($tag: String) {
     site {
       siteMetadata {
         title
@@ -57,7 +48,13 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 1000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
+      filter: {
+        frontmatter: {
+          tags: { in: [$tag] }
+          layout: { eq: "project" }
+          draft: { ne: true }
+        }
+      }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {

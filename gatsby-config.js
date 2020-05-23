@@ -7,15 +7,23 @@ module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'Blog by John Doe',
+    title: 'Ransford Antwi',
     subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+      'Engineer and Aspiring Entrepreneur',
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
       {
         label: 'Articles',
         path: '/',
+      },
+      {
+        label: 'Projects',
+        path: '/projects/',
+      },
+      {
+        label: 'Teaching',
+        path: '/teaching',
       },
       {
         label: 'About me',
@@ -27,11 +35,11 @@ module.exports = {
       },
     ],
     author: {
-      name: 'John Doe',
+      name: 'Ransford Antwi',
       email: '#',
       telegram: '#',
       twitter: '#',
-      github: '#',
+      github: 'masterford',
       rss: '#',
       vk: '#',
     },
