@@ -20,7 +20,7 @@ class ProjectIndexRoute extends React.Component {
           <Helmet>
             <title>{title}</title>
             <meta name="description" content={subtitle} />
-          </Helmet>
+          </Helmet>         
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">{items}</div>
@@ -71,6 +71,13 @@ export const pageQuery = graphql`
             date
             category
             description
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

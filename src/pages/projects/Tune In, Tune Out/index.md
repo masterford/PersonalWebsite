@@ -15,7 +15,7 @@ featuredImage: ./poster.png
 
 TITO is a snap-on solution for selective noise isolation for existing headsets. The project comprised our final thesis project and represented a culmination of the engineering design skills we had gained over the course of our undergraduate careers.
 
-![Poster](./poster.png)
+![Poster](./poster.png) 
 <br>
 
   |  
