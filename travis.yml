@@ -33,7 +33,7 @@ addons:
     packages:
     - g++-4.8
     - gcc-4.8
-# script needed to test, because defaults don't work on osx
+# script needed to test, because defaults don't work on osx 
 script:
   - npm install
 - npm run lint

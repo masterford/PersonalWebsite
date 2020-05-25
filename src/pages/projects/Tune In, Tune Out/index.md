@@ -9,7 +9,7 @@ tags:
   - "Digital Signal Processing"
   - "Noise Cancellation"
   - "Award Winning"
-featuredImage: ./pcb.png
+featuredImage: "./pcb.png"
 description: "Award Winning Senior Design (Capstone) Project. TITO is a snap-on solution for selective noise isolation for existing headsets. The project comprised our final thesis project and represented a culmination of the engineering design skills we had gained over the course of our undergraduate careers." 
 ---
 

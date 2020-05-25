@@ -9,7 +9,6 @@ import Img from 'gatsby-image';
 class ProjectIndexRoute extends React.Component {
   render() {
     const items = []
-    const images = []
     const { title, subtitle } = this.props.data.site.siteMetadata
     const projects = this.props.data.allMarkdownRemark.edges
     projects.forEach(project => {
