@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: url,
     title: 'Ransford Antwi',
     subtitle:
-      'Engineer and Aspiring Entrepreneur',
+      "Engineer and Aspiring Entrepreneur. UPenn'20. BSE: Electrical Engineering, BSE: Computer Science",
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
