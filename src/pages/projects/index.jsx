@@ -4,14 +4,22 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Project from '../../components/Project'
 import Sidebar from '../../components/Sidebar'
+import Img from 'gatsby-image';
 
 class ProjectIndexRoute extends React.Component {
   render() {
     const items = []
+    const images = []
     const { title, subtitle } = this.props.data.site.siteMetadata
     const projects = this.props.data.allMarkdownRemark.edges
     projects.forEach(project => {
+      
       items.push(<Project data={project} key={project.node.fields.slug} />)
+      items.push(<Img fixed={project.node.frontmatter.featuredImage.childImageSharp.fixed} />)
+      items.push(<p />)
+      items.push(<br />)
+      items.push(<br />)     
+     // images.push(<Img sizes={project.node.frontmatter.featuredImage.childImageSharp.sizes} />)
     })
     
     return (
@@ -19,11 +27,11 @@ class ProjectIndexRoute extends React.Component {
         <div>
           <Helmet>
             <title>{title}</title>
-            <meta name="description" content={subtitle} />
-          </Helmet>         
+            <meta name="description" content={subtitle} />            
+          </Helmet>           
           <Sidebar {...this.props} />
           <div className="content">
-            <div className="content__inner">{items}</div>
+               <div className="content__inner">{items}</div>            
           </div>
         </div>
       </Layout>
@@ -73,8 +81,8 @@ export const pageQuery = graphql`
             description
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 400) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }

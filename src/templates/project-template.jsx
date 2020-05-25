@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ProjectTemplateDetails from '../components/ProjectTemplateDetails'
-import Img from "gatsby-image"
 
 class ProjectTemplate extends React.Component {
   render() {
@@ -11,17 +10,15 @@ class ProjectTemplate extends React.Component {
     const project = this.props.data.markdownRemark
     const { title: projectTitle, description: projectDescription } = project.frontmatter
     const description = projectDescription !== null ? projectDescription : subtitle
-    const featuredImgFluid = project.frontmatter.featuredImage.childImageSharp.fluid
     
     return (
       <Layout>
         <div>
-          <Helmet>
+          <Helmet>         
             <title>{`${projectTitle} - ${title}`}</title>
-            <Img fluid={featuredImgFluid} />
-            <meta name="description" content={description} />
-          </Helmet>
-          <ProjectTemplateDetails {...this.props} />
+            <meta name="description" content={description} />            
+          </Helmet>         
+          <ProjectTemplateDetails {...this.props} />         
         </div>
       </Layout>
     )
@@ -57,13 +54,6 @@ export const pageQuery = graphql`
         tags
         date
         description
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
   }
