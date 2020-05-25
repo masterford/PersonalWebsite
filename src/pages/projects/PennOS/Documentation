@@ -1,0 +1,195 @@
+
+In addition to the standard README file, you are also required to provide a companion document for your PennOS.
+This document will contain all the documentation for all PennOS system calls, their error conditions, return values,
+ in which files they belong, and a depth-indented listing of the files (refer to the Linux tree command).
+ Also, you must describe your PCB, signals, and other data structures that are used. You can consider the man pages
+  as a guide for the kind of information expected in your companion document (although there is no need to be
+  as verbose as the man pages). We will only accept submission of companion documents in PDF format.
+  If you submit in any other format, you will receive a 0 on that part of the project. You also have the
+  option of using Doxygen for generating this document automatically from comments in the code.
+
+
+KERNEL
+
+Describe PCB, signals, other data structures
+
+FILESYSTEM
+~~~~~~~~~~~~
+PennOS System Calls
+
+
+Kernel level: fat_interface.h, fat_interface.c
+____________
+
+1. handle_fat_f_open_f_write(const char *fname, FD_NODE *head, ID_MANAGER *id_manager, BLOCK_TRACKER *block_tracker, FAT_FILE_WRAPPER *all_files_head, int fs_fd);
+
+Opens a file in F_WRITE mode which allows writing and reading. File is truncated if it exists.
+File is created if it does not exist.
+
+Returns the file descriptor of the opened or created file
+
+The function will error if the file system is full. This will return -2.
+
+If there is an error setting the reading point in memory, it will return -3.
+
+If there is an error reading, it will return -1.
+
+
+2. int handle_fat_f_open_f_read(const char *fname, FD_NODE *head, ID_MANAGER *id_manager, BLOCK_TRACKER *block_tracker, FAT_FILE_WRAPPER *all_files_head);
+
+Opens a file in F_READ mode which allows for reading only.
+
+Returns the file descriptor of the opened file.
+
+If the file does not exist, it will return -1.
+
+
+3. int handle_fat_f_open_f_append(const char *fname, FD_NODE *head, ID_MANAGER *id_manager, BLOCK_TRACKER *block_tracker, FAT_FILE_WRAPPER *all_files_head, int fs_fd);
+
+Opens a file in F_APPEND mode.
+
+Returns the file descriptor of the opened file.
+
+If the file does not exist and the file system is full or there is an issue reading from the file system, it returns -1.
+
+If there is an error setting the reading point in memory, it will return -3.
+
+
+
+4. int handle_fat_f_read(int filesystem_fd, int n, char * buf, int offset);
+
+Reads a n bytes of a file into a buffer.
+
+Returns the number of bytes read.
+
+If there is an error setting the reading point in memory or with reading, it will return -1.
+
+
+User level
+____________
+
+1. f_open(const char * fname, int mode);
+
+Opens a file in a given mode.
+
+Returns a file descriptor.
+
+If an invalid mode is passed in, it returns -2.
+
+If there is an error opening the file, it returns -1.
+
+
+2. f_read(int fd, int n, char * buf);
+
+Reads n bytes from an open file descriptor into the buffer.
+
+Returns the number of bytes read if the end of file is not reached and 0 if the end of file is reached.
+
+If an invalid file descriptor is passed, returns -1.
+
+/*• f_write(int fd, const char * str, int n) (U) write n bytes8 of the string referenced by str to the file
+ * fd and increment the file pointer by n. On return, f_write returns the number of bytes written,
+ * or a negative value on error.
+ */
+3. f_write(int fd, const char * str, int n);
+//todo once implemented
+
+/* • f_close(int fd) (U) close the file fd and return 0 on success, or a negative value on failure.
+ */
+4. f_close(int fd);
+//todo once implemented
+
+/*• f_unlink(const char * fname) (U) remove the file.
+ */
+5. f_unlink(const char * fname);
+//todo once implemented
+
+/*• f_lseek(int fd, int offset, int whence) (U) reposition the file pointer for fd to the offset relative to whence.
+ * You must also implement the constants F_SEEK_SET, F_SEEK_CUR, and F_SEEK_END, which reference similar file whences
+ * as their similarly named counterparts in lseek(2).
+ */
+6. f_lseek(int fd, int offset, int whence);
+//todo once implemented
+
+~~~~~~~~~~~~
+Other Data Structures Used:
+
+1. id_manager (id_manager.h, id_manager.c)
+
+An id_manager is an easy way to assign least values to numerical IDs. In this case, it is used to track which
+file descriptors are already in use and assign a new file descriptor the least available integer. Adam and Ransford
+wrote this for Project 1 and are using it in Project 2. Each process holds an id_manager that corresponds with the
+process's fd_node list.
+
+An id_manager is implemented as a resizing "boolean" array. The underlying array is an int array that only holds 0s and 1s.
+The id_manager starts with all 0s to indicate that all values are free and can be assigned. When a new value is needed,
+the id_manager starts at the beginning of the array and finds the first index holding a 0. It changes the value of this
+index to 1 and returns the index plus 1 so that the IDs start at 1. When a new ID is needed, but the entire array is full,
+it doubles in size and retains its first half "full" of 1s.
+
+When IDs are done being used, the id_manager re-marks the index equal to ID minus 1, back to 0 or "free".
+
+
+2. fat_file (fat_file.h, fat_file.c) and fat_file_wrapper (fat_file_wrapper.h, fat_file_wrapper.c)
+
+A fat_file is exactly the information written into memory as part of the directory file. A fat_file_wrapper is a linked
+list node that holds a fat_file. The fat_file_wrapper list thus represents all the meta-information about all the files
+in the file system. It is a model of the directory file.
+
+The fat_file_wrapper linked list is essential for determining some behavior. For instance, it is essential in determining
+if a write represents an overwrite or a new file. To determine this, the fat_file_wrapper list is checked through for
+matching file names as the file to be written by the write command. The fat_file_wrapper list also makes accessing
+essential information about each file, like its starting block and size, much easier. For example, without this list,
+we would have to do complicated and case-specific reads from the directory file in memory before every file read.
+
+Also, by reliably constructing this list, we can know when the file system is empty. In this case, the list head is NULL.
+
+The fat_file_wrapper list is stored at the "global" operating system level. This means that one fat_file_wrapper
+list is used by all processes.
+
+
+3. block_tracker (block_tracker.h, block_tracker.c)
+
+The block_tracker is an enhanced model of the actual FAT and an essential part of the file system functionality.
+It stores the values of FAT entries in use and indicates which blocks are free. It is constructed based on the
+fat_file_wrapper linked list that is a model of the directory file. There is a library of block_tracker functions
+also in block_tracker.h and block_tracker.c to maintain the integrity of the block_tracker while the FAT changes.
+At times, we also recreate the block_tracker based on the directory file. The block tracker is stored at the "global"
+operating system level. This means that one block_tracker is used by all processes.
+
+
+4. fd_node (fd_node.h, fd_node.c)
+
+An fd_node represents a linked list node and an active file descriptor in one. An fd_node list is held by each process.
+The IDs or actual file descriptors correspond to the process's id_manager array. This list is defined by unique
+file descriptor IDs. Multiple unique file descriptors may point to the same file. Each fd_node also holds that file
+descriptor's offset within the referenced file. It also holds the open mode of that file descriptor: read, write, or
+append.
+
+
+5. open_file_node (open_file_node.h, open_file_node.c)
+
+The open_file_node is a linked list node and one open file (in potentially multiple modes). An open_file_node list
+stores all open files and the modes in which they are open. This is stored at the "global" operating
+system level for use in all processes. This list tracks which modes each file is open in so that concurrent usage
+can be blocked in appropriate scenarios. For instance, if file "file1" is already open in write mode according to this
+list, it cannot be opened in write mode again with another file descriptor. If "file1" is only open in read mode across
+all processes, it may be opened in read mode again.
+
+
+//todo: tree once final structure is done
+
+
+-mkFlatFAT
+Initializes the Flat_FAT file system on the disk by making a call to posix_fallocate()
+We also initialize the FAT table by assigning every block number to itself, i.e. FAT[i] = i. 
+
+-catFlatFAT
+We made good use of our libraries in implementing this standalone executable. On each instantiation of the executable, we create a linkedList from the current directory file. Our LinkedList library has a function called init_file_wrapper_list_from_existing_FAT(int fd), which uses the file descriptor passed in to seek into the directory file (block 0) and iterate through and add each file as a node in the linkedList.
+
+We then pass the flags to determine which function to call e.g. -w calls our write function, e.t.c
+When a user writes to a file that already exists, we overwrite by deleting the file, and creating a new file with the same name. The file may be stored in a different block.
+
+
+
+-lsFlatFAT
