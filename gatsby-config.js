@@ -14,6 +14,10 @@ module.exports = {
     disqusShortname: '',
     menu: [
       {
+        label: 'Home',
+        path: '/home',
+      },
+      {
         label: 'Articles',
         path: '/',
       },
@@ -40,12 +44,11 @@ module.exports = {
     ],
     author: {
       name: 'Ransford Antwi',
-      email: '#',
+      email: 'antwirk@gmail.com',
       telegram: '#',
       twitter: '#',
       github: 'masterford',
-      rss: '#',
-      vk: '#',
+      linkedIn: 'ransford-antwi-04975411a',
     },
   },
   plugins: [
