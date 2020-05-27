@@ -3,9 +3,7 @@ title: "Work Experience"
 layout: page
 path: "/work"
 ---
-
-The absence of evidence is not the evidence of absence
-
+Honored to have worked with amazing people in a wide array of different roles.
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Software Engineering Intern @Microsoft- OneDrive + SharePoint</h5>
@@ -55,7 +53,7 @@ The absence of evidence is not the evidence of absence
             <li>Flagship product is <a href="https://entrepreneurship.wharton.upenn.edu/wharton-india-2019-fellows/">BotAlly </a> which is a desktop software compatible with both windows and Mac OS </li>
             <li>Led product development with ta total of 3 teammates </li>
             <li>Wrote custom installation scripts</li>
-            <li>Used Selenium and chrome driver to create an activity generator bot</li>
+            <li>Used Selenium and chrome driver to create an activity generator bot(from exisiting code)</li>
             <li>Wrote Java Code to convert JSON and XML file types into different formats including CSV</li>
         </ul>  
         <b>Tools</b> : Java, Python, Netbeans, REST, Scripting, Selenium   
