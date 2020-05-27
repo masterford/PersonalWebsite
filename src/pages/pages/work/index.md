@@ -39,10 +39,33 @@ The absence of evidence is not the evidence of absence
         </ul>    
         </span>
     </div>
+    <br/><br/><br/><br/><br/><br/><br/>
+</div>
+
+<br/><br/><br/><br/><br/><br/>
+<div class="container">
+    <div id='left-content'>
+     <h5 id="Titre">Co-Founder, Developer - SilkBlu Technologies</h5>
+        <img id="Logo" src="./silkblu.png" alt="logo" />        
+    </div>
+    <div id='right-content'>        
+        <br/><br/><b>Duration: January 2019 - May 2020. Philadelphia, PA</b>
+        Software Design & Consulting company that has been contracted for multiple development projects.
+         <ul> 
+            <li>Flagship product is <a href="https://entrepreneurship.wharton.upenn.edu/wharton-india-2019-fellows/">BotAlly </a> which is a desktop software compatible with both windows and Mac OS </li>
+            <li>Led product development with ta total of 3 teammates </li>
+            <li>Wrote custom installation scripts</li>
+            <li>Used Selenium and chrome driver to create an activity generator bot</li>
+            <li>Wrote Java Code to convert JSON and XML file types into different formats including CSV</li>
+        </ul>  
+        <b>Tools</b> : Java, Python, Netbeans, REST, Scripting, Selenium   
+        </span>
+    </div>
     <br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-<br/><br/><br/><br/><br/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Software Engineering/Product Manager Intern @Microsoft- OneDrive + SharePoint</h5>
@@ -67,7 +90,7 @@ The absence of evidence is not the evidence of absence
         <img id="Logo" src="./wharton.png" alt="logo" />        
     </div>
     <div id='right-content'>        
-        <br/><br/><b>Duration: August - November 2017</b><br/>
+        <br/><br/><b>Duration: August - November 2017. Philadelphia, PA</b><br/>
         The Wharton Africa Business Forum (WABF) is the longest running business school conference focused on Africa. Each year, WABF brings 600+ students and professionals to discuss the latest thinking on starting, growing and transforming business on the continent.
         <ul> 
             <li>Worked with the CTO to develop the website</li>
