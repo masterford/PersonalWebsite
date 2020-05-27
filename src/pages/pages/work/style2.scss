@@ -1,0 +1,37 @@
+#Principal {
+    width:1000px;
+    margin: auto;
+    border: solid 1px;
+}
+#left-content {
+    width: 70%;
+    display: inline-block;
+    float: left;
+}
+#right-content {
+    width: 30%;
+    display: inline-block;
+}
+#right-content img {
+ display: inline-block;
+  float: left;
+  width: 30%;
+  height: auto;
+}
+#img-content {
+    width: 60%;
+    display: inline-block;
+    float: left;
+}
+#Logo {
+    display: inline-block;
+    margin-left: 25px;
+    margin-top: 25px;
+    width:15%;
+}
+#Titre {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    text-align: center;
+}

@@ -26,6 +26,10 @@ module.exports = {
         path: '/teaching',
       },
       {
+        label: 'Work',
+        path: '/work',
+      },
+      {
         label: 'About me',
         path: '/about/',
       },

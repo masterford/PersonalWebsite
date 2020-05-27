@@ -15,27 +15,27 @@ class Project extends React.Component {
 
     return (
       <div className="project">
-        <div className="post__meta">
+        <div className="project__meta">
           <time
-            className="post__meta-time"
+            className="project__meta-time"
             dateTime={moment(date).format('MMMM D, YYYY')}
           >
             {moment(date).format('MMMM YYYY')}
           </time>
-          <span className="post__meta-divider" />
-          <span className="post__meta-category" key={categorySlug}>
-            <Link to={categorySlug} className="post__meta-category-link">
+          <span className="project__meta-divider" />
+          <span className="project__meta-category" key={categorySlug}>
+            <Link to={categorySlug} className="project__meta-category-link">
               {category}
             </Link>
           </span>
         </div>
-        <h2 className="post__title">
-          <Link className="post__title-link" to={slug}>
+        <h2 className="project__title">
+          <Link className="project__title-link" to={slug}>
             {title}
           </Link>
         </h2>
-        <p className="post__description">{description}</p>
-        <Link className="post__readmore" to={slug}>
+        <p className="project__description">{description}</p>
+        <Link className="project__readmore" to={slug}>
           Read More
         </Link>
       </div>
