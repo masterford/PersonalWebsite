@@ -104,13 +104,6 @@ module.exports = {
                         layout
                         draft
                         description
-                        featuredImage {
-                          childImageSharp {
-                            fluid(maxWidth: 800) {
-                              ...GatsbyImageSharpFluid
-                            }
-                          }
-                        }
                       }
                     }
                   }
