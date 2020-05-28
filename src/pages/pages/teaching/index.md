@@ -25,7 +25,7 @@ I was fortunate enough to be able to contribute to the development of some of th
     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Project Manager for CIS350 - Software Engineering</h5>
@@ -44,7 +44,7 @@ I was fortunate enough to be able to contribute to the development of some of th
     <br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Teaching Assistant for ESE 215(Circuits),<br/> ESE 111(Atoms, Bits, Circuits, and Systems),<br/> ESE 190(Introduction to Open Source Hardware and Software Platforms)</h5>

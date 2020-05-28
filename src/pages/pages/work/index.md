@@ -22,7 +22,7 @@ Honored to have worked with amazing people in a wide array of different roles.
     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-<br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Business Strategy Consultant @Astrome Technlogies</h5>
@@ -40,7 +40,7 @@ Honored to have worked with amazing people in a wide array of different roles.
     <br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Co-Founder, Developer - SilkBlu Technologies</h5>
@@ -63,7 +63,7 @@ Honored to have worked with amazing people in a wide array of different roles.
 </div>
 
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Software Engineering/Product Manager Intern @Microsoft- OneDrive + SharePoint</h5>
@@ -81,7 +81,7 @@ Honored to have worked with amazing people in a wide array of different roles.
     </div>
 </div>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div id='left-content'>
      <h5 id="Titre">Technology Director for the 25th Annual Wharton Africa Business Forum</h5>
