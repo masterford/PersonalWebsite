@@ -15,11 +15,11 @@ module.exports = {
     menu: [
       {
         label: 'Home',
-        path: '/home',
+        path: '/',
       },
       {
         label: 'Articles',
-        path: '/',
+        path: '/articles',
       },
       {
         label: 'Projects',
