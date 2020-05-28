@@ -1,7 +1,7 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
 
-.post-single {
+.project-single {
     &__inner {
         max-width: $layout-post-single-max-width;
         padding: 0 15px;
@@ -45,7 +45,7 @@
             @include margin-bottom(1);
         }
         & :not(div) {
-            max-width: $layout-post-single-width;
+            max-width: 20000px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -120,7 +120,7 @@
 }
 
 @include breakpoint-sm {
-    .post-single {
+    .project-single {
         &__footer {
             margin-left: auto;
             margin-right: auto;
@@ -135,7 +135,7 @@
 }
 
 @include breakpoint-md {
-    .post-single {
+    .project-single {
         &__inner {
             padding: 0;
         }

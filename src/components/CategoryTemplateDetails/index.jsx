@@ -1,13 +1,18 @@
 import React from 'react'
 import Post from '../Post'
+import Project from '../Project'
 
 class CategoryTemplateDetails extends React.Component {
   render() {
     const items = []
     const { category } = this.props.pageContext
     const posts = this.props.data.allMarkdownRemark.edges
+    
+    //posts.forEach(post => {
+    //  items.push(<Post data={post} key={post.node.fields.slug} />)
+    //})
     posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
+      items.push(<Project data={post} key={post.node.fields.slug} />)
     })
 
     return (

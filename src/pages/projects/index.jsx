@@ -18,7 +18,6 @@ class ProjectIndexRoute extends React.Component {
       items.push(<p />)
       items.push(<br />)
       items.push(<br />)     
-     // images.push(<Img sizes={project.node.frontmatter.featuredImage.childImageSharp.sizes} />)
     })
     
     return (
