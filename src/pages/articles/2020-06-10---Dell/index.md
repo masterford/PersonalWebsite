@@ -1,5 +1,5 @@
 ---
-title: Dells revolutionary business model (at the time)
+title: Dells Revolutionary Business Model 
 date: "2020-06-01T23:46:37.121Z"
 layout: post
 draft: false

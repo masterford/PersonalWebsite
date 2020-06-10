@@ -1,5 +1,5 @@
 ---
-title: How DropBox successfully utilized the principles of "Hypothesis-Driven Entrepreneurship"
+title: How DropBox Successfully Utilized The Principles Of "Hypothesis-Driven Entrepreneurship"
 date: "2020-06-01T23:46:37.121Z"
 layout: post
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: Experiences Building a miniature wearable IoT enabled camera from scratch
+title: Experiences Building A Miniature Wearable IoT Enabled Camera From Scratch
 date: "2020-06-01T23:46:37.121Z"
 layout: post
 draft: false
